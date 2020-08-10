@@ -3,6 +3,6 @@ layout: tag-blog
 title: Embedded System
 slug: embedded
 category: devlog
-menu: true
+menu: false
 order: 1
 ---

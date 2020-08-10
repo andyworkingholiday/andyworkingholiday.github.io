@@ -26,12 +26,12 @@ andyworkingholiday:
     # twitter:         <username>
     # google:          <number>
     # vk:              <username>
-    instagram:       <andyworkingholiday>
-    youtube:         <UCeBauIZ5u5yn6PntNY_wkZA>
+    instagram:       andyworkingholiday
+    youtube:         UCeBauIZ5u5yn6PntNY_wkZA
     # vimeo:           <username>
     # vine:            <username>
     # spotify:         <user>/<number>
-    soundcloud:      <andyworkingholiday>
+    soundcloud:      andyworkingholiday
     # lastfm:          <username>
     # flickr:          <string@string>
     # 500px:           <username>
@@ -57,7 +57,7 @@ andyworkingholiday:
     # delicious:       <username>
     # stumbleupon:     <username>
     # paypal:          <username>
-    email:           jwb0904@naver.com
+    #email:           jwb0904@naver.com
     #rss:             https://isme2n.github.io/feed.xml
 
 # Another author
