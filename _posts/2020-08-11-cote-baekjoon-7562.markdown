@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[백준-7562] 나이트의 이동 "
-subtitle:   "BFS 기본문제."
+subtitle:   "알고리즘 실력기르기"
 categories: cote
 tags: baekjoon
 ---

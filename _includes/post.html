@@ -21,66 +21,7 @@
   {% assign tag = site.featured_tags | where: "slug", tag_slug | first %}
   {% endunless %}
   {% endfor %}
-
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  {% unless include.excerpt %}
-  <div class="markdown-body">
-
-    <!-- {% if post.header-img %}<div class="head-image"><img
-        src="{{ site.url }}/{% if post.header-img %}assets/{{ post.header-img }}{% endif %}" /></div>
-    <br />{% elsif tag.header-img %}
-    <div class="head-image"><img src="{{ site.url }}/assets/{{ tag.header-img }}" /></div>
-    <br />{% endif %} -->
-    <style>
-      .myAd1190 {
-        width: 48%;
-        height: 280px;
-      }
-
-      .myAd1290 {
-        width: 48%;
-        height: 280px;
-      }
-
-      @media(max-width: 800px) {
-        .myAd1190 {
-          display: none;
-        }
-
-        .myAd1290 {
-          width: 98%;
-        }
-      }
-
-      .row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 300px;
-      }
-
-      .row-center {
-        display: flex;
-        justify-content: center;
-        height: 258px;
-      }
-    </style>
-    <div class='row'>
-      <ins class="adsbygoogle myAd1190" data-ad-client="ca-pub-9134477021095729" data-ad-slot="6559875097"></ins>
-      <ins class="adsbygoogle myAd1290" data-ad-client="ca-pub-9134477021095729" data-ad-slot="6559875097"></ins>
-    </div>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
-    <br />
-    {{ post.content }}
-    <br />
-    <br />
-  </div>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  
   {% else %}
   {{ post.excerpt }}
   <p class="read-more"><a class="heading" href="{{ post.url | relative_url }}" data-flip="title">Continue reading </a>
