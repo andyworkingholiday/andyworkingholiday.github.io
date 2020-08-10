@@ -13,7 +13,7 @@ url:                 https://andyworkingholiday.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             작곡가 및 엔지니어\n앤디워킹홀리데이 입니다.
+tagline:             작곡가/엔지니어/개발자
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
@@ -26,7 +26,7 @@ author:
   email:             kebee95@gmail.com
 
 # Fallback image and color
-image:               /assets/img/nap.jpg
+image:               /assets/img/nap.jpeg
 color:               '#4f86aa'
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
@@ -44,13 +44,13 @@ google_fonts:        Lato
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:    UA-92346434-1
+google_analytics:    UA-175055286-1
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    isme2n
+disqus_shortname:    andyworkingholiday
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. by isme2n'
+copyright:           '&copy; 2020. by Andyworkingholiday'
 
 # Format of the permalinks
 permalink:           pretty
