@@ -21,14 +21,8 @@
   {% assign tag = site.featured_tags | where: "slug", tag_slug | first %}
   {% endunless %}
   {% endfor %}
-  
-  {% else %}
-  {{ post.excerpt }}
-  <p class="read-more"><a class="heading" href="{{ post.url | relative_url }}" data-flip="title">Continue reading </a>
-  </p>
-  {% endunless %}
-
 </article>
+
 {% unless include.link_title %}
 <hr class="dingbat" />
 
