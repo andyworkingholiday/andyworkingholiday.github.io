@@ -6,7 +6,7 @@ categories: devlog
 tags: ros
 ---
 
-# ROS setup
+## ROS setup
 
 설치과정에서 사용된 아래 명렁어처럼 환경 설정 파일을 불러오는 것은 새로운 터미널 창을 열때마다 매번 실행해줘야 합니다. 
 
@@ -56,7 +56,3 @@ ROS_MASTER_URI와 ROS_HOSTNAME의 설정입니다.
 ROS는 네트워크를 이용해 노드 간에 메시지 통신을 하기 때문에 이 설정은 매우 중요합니다.
 
 우선은 둘 다 자신의 네트워크 IP를 입력해주면 되는데, 차후에 마스터 PC가 따로 있고 로봇은 호스트 PC를 사용하는 경우(Turtlebot의 라즈베리파이) 이를 구분하여 입력하면 다른 컴퓨터 간의 통신이 가능하게 됩니다.
-
-## 참조
-
-- http://wiki.ros.org/melodic/Installation/Ubuntu

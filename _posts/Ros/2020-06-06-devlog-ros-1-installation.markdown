@@ -6,7 +6,7 @@ categories: devlog
 tags: ros
 ---
 
-# Installation ROS on Ubuntu 18.04
+## Installation ROS on Ubuntu 18.04
 
 이 글은 우분투18.04에서 Ros Melodic을 설치하는 내용을 다룹니다.
 

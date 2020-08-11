@@ -8,6 +8,9 @@ title:               A.W.H
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
 url:                 https://andyworkingholiday.github.io
 
+# timezon set
+timezone: Asia/Seoul # 지역 시간 설정
+
 # Set to '' when hosting a blog on GitHub Pages, ie on `//<username>.github.io`
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             ""
@@ -44,6 +47,7 @@ google_fonts:        Lato
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
+google_analytics: UA-175055286-1
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
 disqus_shortname:    andyworkingholiday
