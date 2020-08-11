@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "[백준-2579] 계단 오르기 "
+subtitle:   "알고리즘 실력기르기"
+categories: cote
+tags: baekjoon
+---
+
+DP 기본.
+
+
+## Code
+---
+
+```cpp 
+#include <iostream>
+#include <algorithm>
+#define MAX 301
+using namespace std;
+
+int n, stairs[MAX], dp[MAX];
+
+int main() {
+	scanf("%d", &n);
+	for (int i = 1; i <= n; i++)
+		scanf("%d", stairs + i);
+
+	dp[1] = stairs[1], dp[2] = stairs[2] + stairs[1];
+	for (int i = 3; i <= n; i++) {
+		dp[i] = max(dp[i - 3] + stairs[i - 1], dp[i - 2]) + stairs[i];
+	}
+	printf("%d\n", dp[n]);
+	return 0;
+}
+```
+
+

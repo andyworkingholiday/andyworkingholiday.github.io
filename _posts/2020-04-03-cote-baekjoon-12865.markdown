@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "[백준-12865] 평범한 배낭 "
+subtitle:   "알고리즘 실력기르기"
+categories: cote
+tags: baekjoon
+---
+
+Knapsack 알고리즘이라고도 불린다. 
+
+문제를 풀기전엔 뭐야 쉽게 풀 수 있겠네 하고 생각했지만 녹록지 않다. 
+
+기존 dp문제에서 한번 더 생각해 볼 필요가 있다.
+
+## Code
+---
+
+```cpp 
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int n, k;
+int w[101], v[101];
+int dp[101][100001];
+
+int main() {
+	scanf("%d %d", &n, &k);
+	for (int i = 1; i <= n; i++) {
+		scanf("%d %d", w + i, v + i);
+	}
+
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= k; j++) {
+			dp[i][j] = dp[i - 1][j];
+			if (j - w[i] >= 0) {
+				dp[i][j] = max(dp[i][j], dp[i - 1][j - w[i]] + v[i]);
+			}
+		}
+	}
+	printf("%d\n", dp[n][k]);
+	return 0;
+}
+```
+
+
