@@ -1,0 +1,60 @@
+---
+layout: post
+title:  "[백준-9466] 텀 프로잭트 "
+subtitle:   "알고리즘 실력기르기"
+categories: cote
+tags: baekjoon
+---
+
+DFS 알고리즘을 2개를 써보면 되지않을까
+
+## Code
+---
+
+```cpp 
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int N, answer;
+int nodes[100001];
+bool check[100001];
+bool finish[100001];
+
+void dfs(int n) {
+	check[n] = true;
+	int next = nodes[n];
+	if (!check[next])
+		dfs(next);
+	else if (!finish[next]) {
+		for (int i = next; i != n; i = nodes[i])
+			answer++;
+		answer++;
+	}
+	finish[n] = true;
+}
+
+
+int main() {
+	int T;
+	scanf("%d", &T);
+	while (T--) {
+		scanf("%d", &N);
+		memset(check, 0, sizeof(check));
+		memset(finish, 0, sizeof(finish));
+		for (int i = 1; i <= N; i++) {
+			scanf("%d", &nodes[i]);
+		}
+		answer = 0;
+		for (int i = 1; i <= N; i++) {
+			if (!finish[i])
+				dfs(i);
+		}
+		cout << N - answer << endl;
+	}
+	return 0;
+}
+```
+
+
+

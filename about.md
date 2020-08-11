@@ -20,6 +20,8 @@ order: 10
 
 ### Interest
 - Embedded System & RTOS
+- Autonomous Driving
+- ROS
 - Deep Learning & Machine Learning
 - Open API
 - Composition, MIDI ...
