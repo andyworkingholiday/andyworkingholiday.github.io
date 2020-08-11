@@ -1,71 +1,27 @@
 <style id="_pageStyle">
-  {
-    % capture page_style %
-  }
-
+{% capture page_style %}
   .content a {
-    color: #1264A3;
-
-    border-color: fade-out( {
-          {
-          color
-        }
-      }
-
-      , 0.8);
+    color: {{ color }};
+    border-color: fade-out({{ color }}, 0.8);
   }
 
   .content a:hover {
-    border-color: {
-        {
-        color
-      }
-    }
-
-    ;
+    border-color: {{ color }};
   }
 
   :focus {
-    outline-color: {
-        {
-        color
-      }
-    }
-
-    ;
+    outline-color: {{ color }};
   }
 
   ::selection {
-
-
-    background: {
-        {
-        color: #B1E1FE;
-      }
-    }
-
-    ;
+    color: #fff;
+    background: {{ color }};
   }
 
   ::-moz-selection {
-
-
-    background: {
-        {
-        color: #B1E1FE;
-      }
-    }
-
-    ;
+    color: #fff;
+    background: {{ color }};
   }
-
-    {
-    % endcapture %
-  }
-
-    {
-      {
-      page_style | scssify
-    }
-  }
+{% endcapture %}
+{{ page_style | scssify }}
 </style>
