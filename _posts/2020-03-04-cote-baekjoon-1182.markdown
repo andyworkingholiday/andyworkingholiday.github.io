@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "[백준-9663] 부분 수열의 합 "
+subtitle:   "알고리즘 실력기르기"
+categories: cote
+tags: baekjoon
+---
+
+나는 백트래킹이 제일 어렵다. 
+
+재귀적으로 업데이트 돼서 다시 값을 갱신하는 과정이 
+
+머리로는 이해가 되지만 구현할 때는 로직이 어렵다 ㅠㅠㅠ
+
+## Code
+---
+
+```cpp 
+  
+#include <iostream>
+#define MAX 21
+using namespace std;
+
+int N, S, numbers[MAX], cnt, cS;
+
+void dfs(int index) {
+	if (index == N) return;
+	if (cS + numbers[index] == S) cnt++;
+	dfs(index + 1);
+	cS += numbers[index];
+	dfs(index + 1);
+	cS -= numbers[index];
+}
+
+int main() {
+	scanf("%d %d", &N, &S);
+	for (int i = 0; i < N; i++) 
+		scanf("%d", &numbers[i]);
+	dfs(0);
+	printf("%d\n", cnt);
+}
+```
+
+

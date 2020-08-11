@@ -1,0 +1,55 @@
+---
+layout: post
+title:  "[백준-9663] N-Queen "
+subtitle:   "알고리즘 실력기르기"
+categories: cote
+tags: baekjoon
+---
+
+처음에 이 문제를 접했을 때는 어떻게 풀지 감도 오지 않았다. 
+
+백트래킹 알고리즘을 몰랐기 때문이다. 
+
+이렇게 짧은 풀이가 나올수 있다는 것이 정말 감탄스럽다.
+
+## Code
+---
+
+```cpp 
+#include <iostream>
+#define MAX 16
+using namespace std;
+
+int N, answer;
+int queen[MAX];
+
+bool is_queen(int n) {
+	for (int i = 0; i < n; i++) {
+		if (queen[i] == queen[n]) return false;
+		if (n - i == abs(queen[n] - queen[i])) return false;
+	}
+	return true;
+}
+
+void dfs(int n) {
+	if (n == N - 1) {
+		answer++;
+		return;
+	}
+	for (int i = 0; i < N; i++) {
+		queen[n + 1] = i;
+		if (is_queen(n + 1))
+			dfs(n + 1);
+	}
+}
+
+
+
+int main() {
+	scanf("%d", &N);
+	dfs(-1);
+	printf("%d\n", answer);
+}
+```
+
+
