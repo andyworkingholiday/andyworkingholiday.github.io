@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 미세먼지안녕 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 100% 시뮬레이션 문제이다. 

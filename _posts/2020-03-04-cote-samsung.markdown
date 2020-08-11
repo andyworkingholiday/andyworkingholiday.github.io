@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 로봇청소기 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 기출 치고는 쉬웠던 문제.

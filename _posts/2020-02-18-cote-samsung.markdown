@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 스타트와 링크 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 조합이기 때문에 분명 끝까지 for문이 돌지 않고

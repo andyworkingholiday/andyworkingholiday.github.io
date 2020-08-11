@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 큐빙 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 이 문제를 풀기 위한 편법은 없다. 

@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 연구소3 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 연구소가 진화했다.

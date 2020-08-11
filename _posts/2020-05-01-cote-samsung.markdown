@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 사다리조작 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 DFS와 백트래킹은 항상 같이 나오는 것 같다. 

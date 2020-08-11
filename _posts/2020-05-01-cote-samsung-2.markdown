@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 주사위 윷놀이 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 나에겐 정말 어려운 문제였다. 

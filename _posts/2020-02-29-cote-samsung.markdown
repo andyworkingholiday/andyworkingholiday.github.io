@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 경사로 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 Na982님의 엄청난 풀이 이다. 

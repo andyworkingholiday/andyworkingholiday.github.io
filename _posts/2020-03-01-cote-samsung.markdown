@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 구슬탈출 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 BFS를 할 때 예외처리에 집중해보자. 

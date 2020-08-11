@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 청소년 상어 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 학교 수업을 듣고 이것저것 하느라 한동안 코딩 감이 떨어져 있었다. 

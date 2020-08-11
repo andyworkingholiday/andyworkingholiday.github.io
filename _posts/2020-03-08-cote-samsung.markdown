@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 2048(Easy) "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 Easy라고 하는데 전혀 쉽지 않다. 

@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 연구소 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 백준의 불 피하기 문제와 비슷하다. 

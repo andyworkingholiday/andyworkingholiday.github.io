@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 이차원 배열과 연산 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 우선순위 큐를 적재적소에 사용해보자.

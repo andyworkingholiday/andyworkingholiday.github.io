@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 연산자 끼워넣기 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 백트래킹으로 풀면 간단한 문제.

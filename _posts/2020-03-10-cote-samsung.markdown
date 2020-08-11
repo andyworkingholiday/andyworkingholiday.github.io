@@ -3,7 +3,7 @@ layout: post
 title:  "[삼성 SW 역량 테스트] 원판 돌리기 "
 subtitle:   "삼성 기출문제"
 categories: cote
-tags: baekjoon
+tags: samsung
 ---
 
 재밌는 구현 문제이다.
