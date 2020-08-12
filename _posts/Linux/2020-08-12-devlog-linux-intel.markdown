@@ -56,30 +56,40 @@ realsense-viewer
 
 설치하자마자 realsense-viewer를 실행하시지 마시고 다시 usb를 재연결하시고 실행시키면 됩니다.
 <br/>
+<br/>
+<br/>
 
-![intel-435](https://i.ibb.co/GQwQYVd/435-1.png)
+![intel-435](https://i.ibb.co/PGpGX5r/435-1.png)
 
 라즈베리파이 카메라 같은 걸 쓰다보니 확실히 화질이 좋은게 느껴졌습니다. 
 
 Depth view를 활성화 시키면 열화상 카메라 처럼 보이는 화면이 나타나는데 열감지는 절대 아니고 파란색일 수록 가까운거리 이고 빨간색일 수록 먼 거리를 감지 합니다. 
 <br/>
-![intel-435-2](https://i.ibb.co/m5ZRfZs/435-2.png)
+<br/>
+<br/>
+
+![intel-435-2](https://i.ibb.co/9HKpQKX/435-2.png)
 
 또한 우측 상단의 3D 버튼을 클릭하면  카메라의 2D 정보와 공간정보를 Overlay해서 3차원 텍스쳐 이미지를 만들어냅니다. 정말 대단합니다...
+<br/>
+<br/>
+<br/>
 이후 T265 모델도 테스트 해 보았습니다.
  <br/>
  
-![intel-265](https://i.ibb.co/NTzVL4Z/265-1.png)
+![intel-265](https://i.ibb.co/hYv7KqD/265-1.png)
 
 T265는 마치 잡입할 때 쓰는 카메라처럼 렌즈가 휘어있고 흑백이였습니다. 
 또한 Pose Estimation이 D435보다 훨씬 유연한 느낌을 받았습니다.
  <br/>
+ <br/>
+ <br/>
  
  ![intel-265](https://i.ibb.co/zn1pPhZ/265-2.png)
- 
  3D버튼을 클릭하면 카메라의 이동에 따라 실선이 그려지는 것을 확인하였습니다.
  확실히 IMU센서가 위치 이동을 잘 잡아내는 느낌입니다. 하지만 이리저리 흔들다가 원래의 위치로 돌아오면 실제의 위치와는 다른 곳을 가르켰습니다. 
  
+ <br/>
  <br/>
  <br/>
  <br/>
