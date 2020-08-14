@@ -32,18 +32,19 @@ tags: deeplearning
 
 과적합은 학습 파라메터의 값이 커서 발생하는 경우가 많다고 합니다. **가중치 감소(weight decay)**는 이를 방지하기 위해 학습 파라메터의 값이 크면 그에 상응하는 큰 패널티를 부여하는 기법입니다. 
 
-**1) L2 Regularization** : 가장 일반적인 regulization 기법입니다. 기존 손실함수($L_{old}$)에 모든 학습파라메터의 제곱을 더한 식을 새로운 손실함수로 씁니다. 아래 식과 같습니다. 여기에서 $1/2$이 붙은 것은 미분 편의성을 고려한 것이고, $λ$는 패널티의 세기를 결정하는 사용자 지정 하이퍼파라메터입니다. 이 기법은 큰 값이 많이 존재하는 가중치에 제약을 주고, 가중치 값을 가능한 널리 퍼지도록 하는 효과를 냅니다.
+**1) L2 Regularization** : 가장 일반적인 regulization 기법입니다. 기존 손실함수(<img src="https://render.githubusercontent.com/render/math?math=L_{old}">)에 모든 학습파라메터의 제곱을 더한 식을 새로운 손실함수로 씁니다. 아래 식과 같습니다. 여기에서 <img src="https://render.githubusercontent.com/render/math?math=1/2">이 붙은 것은 미분 편의성을 고려한 것이고, λ는 패널티의 세기를 결정하는 사용자 지정 하이퍼파라메터입니다. 이 기법은 큰 값이 많이 존재하는 가중치에 제약을 주고, 가중치 값을 가능한 널리 퍼지도록 하는 효과를 냅니다.
 
-$$W=\begin{bmatrix} { w }_{ 1 } & { w }_{ 2 } & ... & { w }_{ n } \end{bmatrix}\\ { L }_{ new }={ L }_{ old }+\frac { \lambda  }{ 2 } { (w }_{ 1 }^{ 2 }+{ w }_{ 2 }^{ 2 }+...+{ w }_{ n }^{ 2 })$$
+<img src="https://render.githubusercontent.com/render/math?math=\Large { L }_{ new }={ L }_{ old }%2B\frac { \lambda  }{ 2 } { (w }_{ 1 }^{ 2 }%2B{ w }_{ 2 }^{ 2 }%2B...%2B{ w }_{ n }^{ 2 })">
+
 
 **2) L1 Regulazation** : 기존 손실함수에 학습파라메터의 절대값을 더해 적용합니다. 이 기법은 학습파라메터를 **sparse**하게(거의 0에 가깝게) 만드는 특성이 있습니다. 
 
-$${ L }_{ new }={ L }_{ old }+\lambda (\left| { w }_{ 1 } \right| +\left| { w }_{ 2 } \right| +...+\left| { w }_{ n } \right| )$$
+<img src="https://render.githubusercontent.com/render/math?math=\Large { L }_{ new }={ L }_{ old }%2B\lambda (\left| { w }_{ 1 } \right| %2B\left| { w }_{ 2 } \right| %2B...%2B\left| { w }_{ n } \right| )">
+
 
 **3) L1 + L2 **:  물론 두 기법을 동시에 사용할 수도 있습니다. 
 
-$${ L }_{ new }={ L }_{ old }+\frac { { \lambda  }_{ 1 } }{ 2 } { W }^{ T }W+{ \lambda  }_{ 2 }(\left| { w }_{ 1 } \right| +\left| { w }_{ 2 } \right| +...+\left| { w }_{ n } \right| )$$
-
+<img src="https://render.githubusercontent.com/render/math?math=\Large { L }_{ new }={ L }_{ old }%2B\frac { { \lambda  }_{ 1 } }{ 2 } { W }^{ T }W%2B{ \lambda  }_{ 2 }(\left| { w }_{ 1 } \right| %2B\left| { w }_{ 2 } \right| %2B...%2B\left| { w }_{ n } \right| )">
 
 <br/>
 
@@ -70,16 +71,12 @@ $${ L }_{ new }={ L }_{ old }+\frac { { \lambda  }_{ 1 } }{ 2 } { W }^{ T }W+{ \
 <br/>
 
 
-학습 시작부터 종료시까지 학습률을 고정한 채로 학습을 시킬 수도 있지만 학습이 거듭될 수록 해당 모델이 최적 지점에 수렴하게 될 것이므로 막바지에는 학습률을 작게 해 파라메터를 미세 조정하는 것이 좋을 것입니다. 학습률 감소 기법은 이 때문에 제안됐는데요, 각각 아래와 같습니다. 여기에서 $η$는 학습률, $t$는 스텝 수이며 $k$는 사용자가 지정하는 하이퍼파라메터입니다.
+학습 시작부터 종료시까지 학습률을 고정한 채로 학습을 시킬 수도 있지만 학습이 거듭될 수록 해당 모델이 최적 지점에 수렴하게 될 것이므로 막바지에는 학습률을 작게 해 파라메터를 미세 조정하는 것이 좋을 것입니다. 학습률 감소 기법은 이 때문에 제안됐는데요, 각각 아래와 같습니다. 여기에서 η는 학습률, <img src="https://render.githubusercontent.com/render/math?math=t">는 스텝 수이며 <img src="https://render.githubusercontent.com/render/math?math=k">는 사용자가 지정하는 하이퍼파라메터입니다.
 
 <br/>
 
 
 **step decay** : 스텝마다 일정한 양만큼 학습률을 줄이는 기법입니다. 5epoch마다 반으로 줄이거나 20epoch마다 1/10씩 줄이는 방법이 많이 쓰이지만, 데이터나 네트워크 구조에 따라 일률적으로 적용하기는 어렵습니다.
-
-**exponential decay** : $η=η_0e^{-kt}$
-
-**$1/t$ decay** : $η=η_0/(1+kt)$
 
 
 <br/>
@@ -107,6 +104,6 @@ $${ L }_{ new }={ L }_{ old }+\frac { { \lambda  }_{ 1 } }{ 2 } { W }^{ T }W+{ \
 
 ![](https://i.imgur.com/bvAKXL6.png)
 
-위 그림의 두 네트워크는 마지막에 붙어있는 **소프트맥스 계층(Softmax layer)**만 제외하면 완전히 동일합니다. 다만 $S_1$의 소프트맥스 확률값은 NER, $S_2$는 포스태깅 과제를 수행하면서 나오는 스코어라는 점에 유의할 필요가 있습니다. 위와 같은 Multi-Task Learining 네트워크에서는 아래 수식처럼 역전파시 $S_1$의 그래디언트와 $S_2$의 그래디언트가 동일한 네트워크에 함께 전달되면서 학습이 이뤄지게 됩니다. 
+위 그림의 두 네트워크는 마지막에 붙어있는 **소프트맥스 계층(Softmax layer)**만 제외하면 완전히 동일합니다. 다만 <img src="https://render.githubusercontent.com/render/math?math=S_1"> 의 소프트맥스 확률값은 NER, <img src="https://render.githubusercontent.com/render/math?math=S_2">는 포스태깅 과제를 수행하면서 나오는 스코어라는 점에 유의할 필요가 있습니다. 위와 같은 Multi-Task Learining 네트워크에서는 아래 수식처럼 역전파시 <img src="https://render.githubusercontent.com/render/math?math=S_1">의 그래디언트와 <img src="https://render.githubusercontent.com/render/math?math=S_2">의 그래디언트가 동일한 네트워크에 함께 전달되면서 학습이 이뤄지게 됩니다. 
 
-$${ \delta  }^{ total }={ \delta  }^{ NER }+{ \delta  }^{ POS }$$
+<img src="https://render.githubusercontent.com/render/math?math=\Large { \delta  }^{ total }={ \delta  }^{ NER }%2B{ \delta  }^{ POS }">
