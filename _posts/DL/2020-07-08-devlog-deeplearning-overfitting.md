@@ -14,52 +14,55 @@ tags: deeplearning
 
 **과적합(overfitting)**이란 모델이 학습데이터에만 지나치게 적응해서 일반화 성능이 떨어지는 경우를 말합니다. 기계학습은 범용 성능을 지향하기 때문에 학습데이터 외에 처음 보는 데이터가 주어지더라도 올바르게 판단할 수 있는 능력을 가져야 합니다. 뉴럴네트워크 학습시 과적합을 방지하는 몇 가지 기법에 대해 살펴보도록 하겠습니다.
 
+<br/>
  <br/>
 
 ### 모델 크기 줄이기
 
 가장 간단한 방법입니다. 레이어나 뉴런 등 학습해야할 파라메터의 개수를 줄여서 과적합을 방지합니다.
-
+<br/>
  <br/>
+
 
 ### early stopping
 
 학습을 일찍 중단하는 방식으로 과적합을 방지합니다.
-
 <br/>
+ <br/>
+
 
 ### 가중치 감소
 
 과적합은 학습 파라메터의 값이 커서 발생하는 경우가 많다고 합니다. **가중치 감소(weight decay)**는 이를 방지하기 위해 학습 파라메터의 값이 크면 그에 상응하는 큰 패널티를 부여하는 기법입니다. 
 
-**1) L2 Regularization** : 가장 일반적인 regulization 기법입니다. 기존 손실함수(<img src="https://render.githubusercontent.com/render/math?math=L_{old}">)에 모든 학습파라메터의 제곱을 더한 식을 새로운 손실함수로 씁니다. 아래 식과 같습니다. 여기에서 <img src="https://render.githubusercontent.com/render/math?math=1/2">이 붙은 것은 미분 편의성을 고려한 것이고, λ는 패널티의 세기를 결정하는 사용자 지정 하이퍼파라메터입니다. 이 기법은 큰 값이 많이 존재하는 가중치에 제약을 주고, 가중치 값을 가능한 널리 퍼지도록 하는 효과를 냅니다.
+**1) L2 Regularization** : 가장 일반적인 regulization 기법입니다. 기존 손실함수($L_{old}$)에 모든 학습파라메터의 제곱을 더한 식을 새로운 손실함수로 씁니다. 아래 식과 같습니다. 여기에서 $1/2$이 붙은 것은 미분 편의성을 고려한 것이고, $λ$는 패널티의 세기를 결정하는 사용자 지정 하이퍼파라메터입니다. 이 기법은 큰 값이 많이 존재하는 가중치에 제약을 주고, 가중치 값을 가능한 널리 퍼지도록 하는 효과를 냅니다.
 
-<img src="https://render.githubusercontent.com/render/math?math=\Large { L }_{ new }={ L }_{ old }%2B\frac { \lambda  }{ 2 } { (w }_{ 1 }^{ 2 }%2B{ w }_{ 2 }^{ 2 }%2B...%2B{ w }_{ n }^{ 2 })">
-
+$$W=\begin{bmatrix} { w }_{ 1 } & { w }_{ 2 } & ... & { w }_{ n } \end{bmatrix}\\ { L }_{ new }={ L }_{ old }+\frac { \lambda  }{ 2 } { (w }_{ 1 }^{ 2 }+{ w }_{ 2 }^{ 2 }+...+{ w }_{ n }^{ 2 })$$
 
 **2) L1 Regulazation** : 기존 손실함수에 학습파라메터의 절대값을 더해 적용합니다. 이 기법은 학습파라메터를 **sparse**하게(거의 0에 가깝게) 만드는 특성이 있습니다. 
 
-<img src="https://render.githubusercontent.com/render/math?math=\Large { L }_{ new }={ L }_{ old }%2B\lambda (\left| { w }_{ 1 } \right| %2B\left| { w }_{ 2 } \right| %2B...%2B\left| { w }_{ n } \right| )">
-
+$${ L }_{ new }={ L }_{ old }+\lambda (\left| { w }_{ 1 } \right| +\left| { w }_{ 2 } \right| +...+\left| { w }_{ n } \right| )$$
 
 **3) L1 + L2 **:  물론 두 기법을 동시에 사용할 수도 있습니다. 
 
-<img src="https://render.githubusercontent.com/render/math?math=\Large { L }_{ new }={ L }_{ old }%2B\frac { { \lambda  }_{ 1 } }{ 2 } { W }^{ T }W%2B{ \lambda  }_{ 2 }(\left| { w }_{ 1 } \right| %2B\left| { w }_{ 2 } \right| %2B...%2B\left| { w }_{ n } \right| )">
+$${ L }_{ new }={ L }_{ old }+\frac { { \lambda  }_{ 1 } }{ 2 } { W }^{ T }W+{ \lambda  }_{ 2 }(\left| { w }_{ 1 } \right| +\left| { w }_{ 2 } \right| +...+\left| { w }_{ n } \right| )$$
 
 <br/>
+ <br/>
 
 ### Dropout
 
 **드롭아웃**은 일부 뉴런을 꺼서 학습하는 방법입니다. 일종의 **앙상블(ensemble)** 효과를 낸다고 합니다. 학습시에는 삭제할 뉴런을 무작위로 끄고, 테스트할 때 모든 뉴런을 씁니다.
 
 <br/>
-<br/>
+ <br/>
 
 ## 기타 학습 기법들
 
 기타 기법들을 소개합니다.
 
 <br/>
+ <br/>
 
 
 ### 학습률 감소
@@ -68,20 +71,23 @@ tags: deeplearning
 
 ![](https://i.imgur.com/qJ5sm14.jpg)
 
-<br/>
-
-
-학습 시작부터 종료시까지 학습률을 고정한 채로 학습을 시킬 수도 있지만 학습이 거듭될 수록 해당 모델이 최적 지점에 수렴하게 될 것이므로 막바지에는 학습률을 작게 해 파라메터를 미세 조정하는 것이 좋을 것입니다. 학습률 감소 기법은 이 때문에 제안됐는데요, 각각 아래와 같습니다. 여기에서 η는 학습률, <img src="https://render.githubusercontent.com/render/math?math=t">는 스텝 수이며 <img src="https://render.githubusercontent.com/render/math?math=k">는 사용자가 지정하는 하이퍼파라메터입니다.
 
 <br/>
+ <br/>
 
+학습 시작부터 종료시까지 학습률을 고정한 채로 학습을 시킬 수도 있지만 학습이 거듭될 수록 해당 모델이 최적 지점에 수렴하게 될 것이므로 막바지에는 학습률을 작게 해 파라메터를 미세 조정하는 것이 좋을 것입니다. 학습률 감소 기법은 이 때문에 제안됐는데요, 각각 아래와 같습니다. 여기에서 $η$는 학습률, $t$는 스텝 수이며 $k$는 사용자가 지정하는 하이퍼파라메터입니다.
 
 **step decay** : 스텝마다 일정한 양만큼 학습률을 줄이는 기법입니다. 5epoch마다 반으로 줄이거나 20epoch마다 1/10씩 줄이는 방법이 많이 쓰이지만, 데이터나 네트워크 구조에 따라 일률적으로 적용하기는 어렵습니다.
 
+<br/>
+ <br/>
+
+**exponential decay** : $η=η_0e^{-kt}$
+
+**$1/t$ decay** : $η=η_0/(1+kt)$
 
 <br/>
-
-
+ <br/>
 
 ### 하이퍼파라메터 최적화
 
@@ -92,18 +98,19 @@ tags: deeplearning
 - 3단계 : 샘플링한 하이퍼파라메터 값을 사용해 학습하고, 검증 데이터로 정확도를 평가한다 (단, 에폭은 작게 설정)
 - 2단계와 3단계를 반복하고, 그 결과를 보고 하이퍼파라메터 탐색 범위를 좁힌다
 
-
-
-
-
-
-
 ### Multi-Task Learning
 
-**Multi-Task Learing**이란 여러 학습 과제를 동시에 해결하는 기계학습의 한 종류입니다. 예컨대 같은 학습말뭉치로 **개체명인식(Named Entity Recognition)**과 **품사분류(Part-Of-Speech Tagging)**를 동시에 수행하는 뉴럴네트워크를 만들 수 있습니다. 아래 그림을 먼저 보겠습니다.
+**Multi-Task Learing**이란 여러 학습 과제를 동시에 해결하는 기계학습의 한 종류입니다. 예컨대 같은 학습말뭉치로 **개체명인식(Named Entity Recognition)**과 **품사분류(Part-Of-Speech Tagging)**를 동시에 수행하는 뉴럴네트워크를 만들 수 있습니다. 아래 그림을 먼저 볼까요?
+
+<br/>
+ <br/>
 
 ![](https://i.imgur.com/bvAKXL6.png)
 
-위 그림의 두 네트워크는 마지막에 붙어있는 **소프트맥스 계층(Softmax layer)**만 제외하면 완전히 동일합니다. 다만 <img src="https://render.githubusercontent.com/render/math?math=S_1"> 의 소프트맥스 확률값은 NER, <img src="https://render.githubusercontent.com/render/math?math=S_2">는 포스태깅 과제를 수행하면서 나오는 스코어라는 점에 유의할 필요가 있습니다. 위와 같은 Multi-Task Learining 네트워크에서는 아래 수식처럼 역전파시 <img src="https://render.githubusercontent.com/render/math?math=S_1">의 그래디언트와 <img src="https://render.githubusercontent.com/render/math?math=S_2">의 그래디언트가 동일한 네트워크에 함께 전달되면서 학습이 이뤄지게 됩니다. 
+<br/>
+ <br/>
 
-<img src="https://render.githubusercontent.com/render/math?math=\Large { \delta  }^{ total }={ \delta  }^{ NER }%2B{ \delta  }^{ POS }">
+위 그림의 두 네트워크는 마지막에 붙어있는 **소프트맥스 계층(Softmax layer)**만 제외하면 완전히 동일합니다. 다만 $S_1$의 소프트맥스 확률값은 NER, $S_2$는 포스태깅 과제를 수행하면서 나오는 스코어라는 점에 유의할 필요가 있습니다. 위와 같은 Multi-Task Learining 네트워크에서는 아래 수식처럼 역전파시 $S_1$의 그래디언트와 $S_2$의 그래디언트가 동일한 네트워크에 함께 전달되면서 학습이 이뤄지게 됩니다. 
+
+$${ \delta  }^{ total }={ \delta  }^{ NER }+{ \delta  }^{ POS }$$
+
