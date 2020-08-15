@@ -17,13 +17,13 @@
 {% endfor %}
 
 {% if page.header-img %}
-  <meta property="og:image" content="{{ site.url }}/assets/로고3.PNG">
+  <meta property="og:image" content="{{ site.url }}/assets/{{ page.header-img }}">
   <br/>
 {% elsif tag.header-img %}
-  <meta property="og:image" content="{{ site.url }}/assets/로고3.PNG">
+  <meta property="og:image" content="{{ site.url }}/assets/{{ tag.header-img }}">
   <br/>
 {% else %}
-  <meta property="og:image" content="{{ site.url }}/assets/로고3.PNG">
+  <meta property="og:image" content="{{ site.url }}/assets/img/logo.png">
 {% endif %}
 
 <meta property="og:image:width" content="640" />
