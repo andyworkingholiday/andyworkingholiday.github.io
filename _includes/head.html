@@ -90,18 +90,19 @@
   window.disableDrawer = {{ site.disable_drawer | default:false}};
 </script>
 
+{% if site.mathjax %}
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
+      inlineMath: [ ['$', '$'] ],
+      displayMath: [ ['$$', '$$'] ],
       processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      inlineMath: [['$','$']]
-      displayMath: [ ['$$', '$$'] ]
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     }
   });
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+{% endif %}
 
 <!--[if lt IE 9]>
 <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
