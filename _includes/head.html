@@ -17,13 +17,13 @@
 {% endfor %}
 
 {% if page.header-img %}
-  <meta property="og:image" content="{{ site.url }}/assets/{{ page.header-img }}">
+  <meta property="og:image" content="{{ site.url }}/assets/로고3.PNG">
   <br/>
 {% elsif tag.header-img %}
-  <meta property="og:image" content="{{ site.url }}/assets/{{ tag.header-img }}">
+  <meta property="og:image" content="{{ site.url }}/assets/로고3.PNG">
   <br/>
 {% else %}
-  <meta property="og:image" content="{{ site.url }}/assets/img/logo.png">
+  <meta property="og:image" content="{{ site.url }}/assets/로고3.PNG">
 {% endif %}
 
 <meta property="og:image:width" content="640" />
@@ -90,20 +90,6 @@
   window.disableDrawer = {{ site.disable_drawer | default:false}};
 </script>
 
-{% if site.mathjax %}
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'] ],
-      displayMath: [ ['$$', '$$'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-  });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-{% endif %}
-
 <!--[if lt IE 9]>
 <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
 <![endif]-->
@@ -141,5 +127,4 @@
   {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
   <link rel="stylesheet" href="{{ icons_url | absolute_url }}">
 </noscript>
-
 <!--<![endif]-->
