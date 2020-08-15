@@ -16,12 +16,12 @@ timezone: Asia/Seoul # 지역 시간 설정
 baseurl:             ""
 
 # A very short description of your page
-tagline:             작곡가/엔지니어/개발자
+tagline:             앤디워킹홀리데이의 진우빈입니다.
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  집콕을 좋아해요.
+  작곡가/엔지니어/개발자
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
