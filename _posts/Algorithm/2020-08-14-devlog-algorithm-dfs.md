@@ -10,7 +10,7 @@ tags: algorithm
 
 
 
-</br>
+<br/>
 
 ## concept
 
@@ -22,8 +22,9 @@ tags: algorithm
 
 
 
-</br>
-</br>
+<br/>
+<br/>
+
 
 ## C++ 구현
 
@@ -55,19 +56,20 @@ void dfs(int start){
 ```
 
 
-</br>
-</br>
+<br/>
+<br/>
 
 ## 순회 예시
 
 (a)와 같은 그래프를 깊이우선탐색 방식으로 순회해보겠습니다. 시작노드 *startVertex*를 $u$로 두겠습니다. 그러면 우선 시작노드 발견시점을 1로 적어두고, *processing*하고 있다는 의미로 색상을 *gray*로 바꿉니다. 이후 *dfsvisit* 함수가 재귀적으로 세 번 호출되면서 $v$, $y$, $x$ 노드에 대해 같은 작업이 진행돼 전체적으로는 (b), (c), (d) 같은 모습을 띄게 됩니다.
 
-</br>
+<br/>
 
 <a href="https://imgur.com/c1rJ8Hs"><img src="https://i.imgur.com/c1rJ8Hs.png" title="source: imgur.com" /></a>
 
 
-</br>
+<br/>
+
 
 이번엔 (f)를 봅시다. (f)에서는 x를 시작노드로 하는 재귀함수 *dfsvisit*이 수행되고 있습니다. x의 이웃노드 가운데 *white*인 노드가 없어서 더 이상 깊이우선탐색이 불가능합니다. x의 *processing*이 완료되었다는 의미로 색상을 *black*으로 바꾸고 종료시점(5)을 기록하고 재귀함수 호출을 종료합니다.
 
@@ -75,17 +77,17 @@ void dfs(int start){
 
 (h)를 봅시다. (h)에서는 v를 시작노드로 하는 재귀함수 *dfsvisit*이 수행되고 있습니다. v의 이웃노드 가운데 *white*인 노드가 없어서 더 이상 깊이 우선 탐색이 불가능합니다. v의 *processing*이 완료되었다는 의미로 색상을 *black*으로 바꾸고 종료시점(7)을 기록하고 재귀함수 호출을 종료합니다.
 
-</br>
+<br/>
 
 <a href="https://imgur.com/F6MtJzY"><img src="https://i.imgur.com/F6MtJzY.png" title="source: imgur.com" /></a>
 
-</br>
+<br/>
 
 (m)을 봅시다. (m)에서는 u를 시작노드로 하는 재귀함수 *dfsvisit*이 수행되고 있습니다. u의 이웃노드 가운데 *white*인 노드가 없어서 더 이상 깊이 우선 탐색이 불가능합니다. u의 *processing*이 완료되었다는 의미로 색상을 *black*으로 바꾸고 종료시점(8)을 기록하고 재귀함수 호출을 종료합니다. 
 
 이로써 *dfs*에서의 *dfsvisit* 재귀함수 호출이 종료됐습니다. 그런데 아직 아래의 반복문은 계속 돌고 있으므로, 나머지 노드 가운데 아직 방문하지 않은(*white*) 노드가 있다면 해당 노드들에 대해서도 *dfsvistit*을 수행해 줍니다.
 
-</br>
+<br/>
 
 (m)을 다시 봅시다. $w$를 시작노드로 *dfvisit*을 수행합니다. $w$ 발견시점을 9로 하고 *processing*하고 있다는 의미로 색상을 *gray*로 바꿉니다. 이후 $w$의 이웃노드인 $z$를 시작노드로 *dfvisit*을 재귀적으로 수행합니다. $z$ 발견시점을 10으로 하고 *processing*하고 있다는 의미로 색상을 *gray*로 바꿉니다.
 
@@ -96,13 +98,13 @@ void dfs(int start){
 (p)까지 수행이 끝나면 그래프 전체에서 *white*인 노드가 없게 됩니다. 이로써 *dfs*의 반복문도 종료됩니다.
 
 
-</br>
+<br/>
 
 <a href="https://imgur.com/Foq0m9r"><img src="https://i.imgur.com/Foq0m9r.png" title="source: imgur.com" /></a>
 
 
-</br>
-</br>
+<br/>
+<br/>
 
 ## 깊이우선탐색 그래프의 특성
 
@@ -116,15 +118,15 @@ void dfs(int start){
 
 깊이우선탐색으로 그래프를 순회한 결과로 부모-자식노드가 도출됩니다. 예컨대 위 그림에서는 $u$와 $v$, $w$와 $b$가 그러한 관계를 갖습니다. 부모에서 자식노드로 향하는 엣지를 `Tree edge/Discover edge`라고 합니다. 반대로 자식에서 부모노드로 향하는 엣지를 `Back edge`라고 합니다. 위 그림 기준으로는 음영표시된 엣지가 tree edge, **B**라고 표시된 엣지가 back edge입니다. 무방향그래프(undirected graph)에서는 Tree edge와 Back edge만 존재합니다.
 
-</br>
+<br/>
 
 Tree edge가 아닌 엣지 가운데 자손노드로 향하는 노드를 `Forward edge`라고 합니다. `Cross edge`는 이 세 가지 경우를 제외한 모든 종류의 엣지를 나타냅니다. 위 그림 기준으로는 **F**가 forward edge, **B**가 back edge입니다. back edge가 존재한다는 말은 사이클(cycle)이 존재한다는 말과 같습니다.
 
-</br>
+<br/>
 
 위 여섯개 노드를 발견시점과 탐색종료시점 순으로 나열하면 다음과 같습니다. 자식노드의 발견시점과 탐색종료시점은 부모노드의 부분집합이 됩니다. 이같은 구조를 *parenthesis structure*라고 합니다.
 
-</br>
+<br/>
 
 <a href="https://imgur.com/8DqJqgR"><img src="https://i.imgur.com/8DqJqgR.png" width="500px" title="source: imgur.com" /></a>
 
@@ -133,8 +135,8 @@ Tree edge가 아닌 엣지 가운데 자손노드로 향하는 노드를 `Forwar
 뿐만 아니라 어떤 임의의 노드가 있고, 이 경로상에 존재하는 *white* 노드들은 깊이우선탐색 기준 해당 노드의 자식노드가 됩니다. 이를 *white path theorem*이라고 합니다.
 
 
-</br>
-</br>
+<br/>
+<br/>
 
 ## 깊이우선탐색의 계산복잡성
 
