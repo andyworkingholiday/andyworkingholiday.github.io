@@ -74,7 +74,7 @@ NVIDIA Jetson Nano는 5V 4A라는 현실에서 찾기 어려운 전원 공급 �
 <br/>
 
 저는 항상 최신 버전의 소프트웨어는 못미더워 하기 때문에
-https://developer.nvidia.com/jetpack-43-archive  여기서 jetpack 4.3버전을 마운트 하였습니다. 라즈베리파이를 몇 번 다뤄본 사용자라면 etcher나 win32 sdcard를 이용한 이미지 굽기! 알고 계실거라고 생각합니다. 
+[여기](https://developer.nvidia.com/jetpack-43-archive)서 jetpack 4.3버전을 마운트 하였습니다. 라즈베리파이를 몇 번 다뤄본 사용자라면 etcher나 win32 sdcard를 이용한 이미지 굽기! 알고 계실거라고 생각합니다 ㅎㅅㅎ
 
 ![Imgur](https://i.imgur.com/DfOle7S.png)
 
