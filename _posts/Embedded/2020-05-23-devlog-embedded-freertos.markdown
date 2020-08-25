@@ -12,6 +12,11 @@ tags: embedded
 
 
 ## FreeRTOS
+
+<br/>
+
+![Imgur](https://i.imgur.com/YBxAMMY.jpg)
+
 <br/>
 
 **FreeRTOS**는 오픈소스 RTOS 중 하나로, 단순함, 뛰어난 이식성, 간결함을 목표로 설계되었습니다. 실제로 운영체제 core 소스 코드가 4,000라인을 넘지 않으며, 불가피한 몇몇 코드를 제외한 거의 모든 code가 C 언어로 작성되어 이식성이 뛰어납니다. 현재 8051, AVR, PIC18, H8, MSP430, HCS12, PIC24, ARM Cortex-M3, ARM7, ARM9, AVR32, ColdFire, x86 등의 다양한 8bit, 16 bit, 32 bit 프로세서에 이식되어 있습니다.
