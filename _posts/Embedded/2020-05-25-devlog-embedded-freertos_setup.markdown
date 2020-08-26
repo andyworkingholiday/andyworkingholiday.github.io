@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "[Embedded System] FreeRTOS에 대해 알아보자"
-subtitle:   "freertos"
+title:  "[Embedded System] FreeRTOS 개발환경을 구축해보자"
+subtitle:   "freertos_setup"
 categories: devlog
 tags: embedded
 ---
@@ -11,115 +11,129 @@ tags: embedded
 <br/>
 
 
-## FreeRTOS
-<br/>
-
-**FreeRTOS**는 오픈소스 RTOS 중 하나로, 단순함, 뛰어난 이식성, 간결함을 목표로 설계되었습니다. 실제로 운영체제 core 소스 코드가 4,000라인을 넘지 않으며, 불가피한 몇몇 코드를 제외한 거의 모든 code가 C 언어로 작성되어 이식성이 뛰어납니다. 현재 8051, AVR, PIC18, H8, MSP430, HCS12, PIC24, ARM Cortex-M3, ARM7, ARM9, AVR32, ColdFire, x86 등의 다양한 8bit, 16 bit, 32 bit 프로세서에 이식되어 있습니다.
-
-FreeRTOS core는 아래와 같은 기능들을 제공합니다.
-
-* Mutlitasking
-  - 선점형, 비선점형 선택 가능
-  - Task 수 제한 없음
-  - 동적으로 task 생성 가능
-  - Priority 수 제한 없음
-  - 두개 이상의 task에 같은 priority 할당 가능 (이 경우 라운드 로빈 스케쥴링)
-
-* Co-routine
-* Message queue
-* Semaphore
-* Memory Management
+## FreeRTOS 설치
 
 <br/>
 
+아두이노에서 라이브러리 형태로 쓸 수 있는 FreeRTOS는 [다음사이트](https://github.com/greiman/FreeRTOS-Arduino/tree/master/libraries/FreeRTOS_ARM/examples) 에서 다운받을 수 있습니다. git clone 명령어를 쓰셔서 다운받으시면 됩니다.
 
-FreeRTOS는 변형된 GPL license 정책을 사용합니다. GPL license와 주된 차이점은 FreeRTOS와 link되어 실행되는 저작물을 공개할 의무가 없다는 것입니다. 이점은 보안이나 상업적인 목적으로 저작물에 대한 독점적 권리를 확보할 필요가 있을 때 이를 가능하게 합니다.
-
-<br/>
-
-## Multitasking
+다운로드 받은 FreeRTOS-Arduino-master 폴더 내 'libraries' 내부로 접근하면 ‘FreeRTOS_ARM’, ‘FreeRTOS_AVR’, ‘SdFat’ 3개의 폴더가 있음을 확인할 수 있습니다.
 
 <br/>
 
-**Multitasking**은 여러 개의 task를 동시에 실행시킬 수 있도록 해주는 기능을 말합니다. 실제로 여러 개의 task가 동시에 수행되는 것은 아니고, 여러 개의 task를 아주 짧은 시간 간격으로 번갈아 실행시켜 사용자가 그렇게 느끼도록 해줍니다.
+![Imgur](https://i.imgur.com/qcEDAwy.png)
 
 <br/>
 
-
-여러 개의 task 중 어느 task를 언제 얼마동안 실행 시킬 것인지를 결정하는 것을 scheduling이라고 합니다. Scheduling 방식은 크게 두가지로 분류됩니다. 하나는 현재 수행중인 task가 자발적으로 수행 권한은 양보할 때 다른 task가 수행 권한을 얻을 수 있는 nonpreemption 방식이고, 다른 하나는 scheduler가 필요에 따라 강제적으로 수행 권한을 다른 task에게 양도할 수 있는 preemption 방식입니다. 
-<br/>
-
-**Nonpreemption** 방식은 voluntary scheduling이라고도 합니다. 
-**Preemption** 방식에는 여러 가지가 있는데 그들 중 가장 많이 사용하는 방식이 priority scheduling 과 round robin scheduling 방식을 혼합한 것입니다. 이것은 기본적으로 priority scheduling 방식을 따르되 같은 proirty를 가진 task들은 round robin 방식으로 scheduling을 하는 것입니다. 이 방식을 priotiry based round robin scheduling 이라고 합니다.
+이후 ‘FreeRTOS_ARM’, ‘FreeRTOS_AVR’, ‘SdFat’ 3개의 폴더를 아두이노 라이브러리 폴더로 이동시키면 됩니다.
+* **이동 위치**: Arduino IDE의 메뉴 표시줄의 ‘파일’–‘환경설정’–‘스케치북 위치’ 폴더 내 libraries
 
 <br/>
 
-FreeRTOS는 Nonpreemption 방식과 Preemption 방식을 모두 지원하며, preemption 방식으로는 prority based round robin scheduling 방식을 지원합니다. 또한 생성할 수 있는 task 수와 priority 수의 제한이 없으며, 실행중에 동적으로 task를 생성할 수도 있습니다.
+![Imgur](https://i.imgur.com/kAUgD4f.png)
 
-FreeRTOS는 multitasking을 library 형태로 지원하며, 관련 API는 다음과 같습니다.
-<br/>
-
-* **xTaskCreate** : 새로운 task를 생성합니다.
-* **vTaskDelete** : task를 삭제합니다.
-* **vTaskDelay** : 주어진 clock tick 동안 task를 지연시킵니다.
-* **vTaskDelayUntil** : 명시된 시점까지 task를 지연시킵니다.
-* **uxTaskPriorityGet** :Task의 우선순위를 돌려줍니다.
-* **vTaskPrioritySet** : Task의 우선순위를 지정합니다.
-* **vTaskSuspend** : Task를 중지(suspend)시킵니다.
-* **vTaskResume** : 중지(suspend)된 task를 다시 시작시킵니다.
-* **vTaskResumeFromISR** :중지(suspend)된 task를 다시 시작시킵니다.이 함수는 ISR에서 사용 가능합니다.
+이제 아두이노에 들어가서 메뉴 표시줄의 ‘스케치’–‘라이브러리 포함하기’–‘라이브러리 관리’ 실행 후 종료시킵니다. 라이브러리 관리를 실행하여 추가된 FreeRTOS 라이브러리가 적용되도록 하기 위함입니다! 메뉴표시줄의 ‘스케치’–‘라이브러리 포함하기’ – 하단에 Contributed 라이브러리를 확인하면 추가한 **FreeRTOS**를 확인할 수 있습니다.
 
 <br/>
 
-## Coroutine
+![Imgur](https://i.imgur.com/bVJT6gD.png)
 
 <br/>
 
-**Coroutine**이란 여러 개의 entry point를 가질 수 있고, 임의의 지점에서 suspending과 resuming이 가능한 subroutine을 말합니다. 이것은 원래 assembly-language로 프로그래밍을 할 때 사용하던 기술인데, Simula나 Modula-2 같은 몇몇 고급언어에서도 지원합니다. Coroutine의 장점은 작은 자원으로 multitasking 효과를 낼 수 있다는 것입니다. 이유는 task들과는 달리 coroutine간에 제어권 전환이 이루어질 때 context switching을 하지 않으며, coroutine들이 stack을 공유하기 때문입니다. 하지만 voluntary scheduling 만 지원 가능하고, local 변수 활용이 힘들다는 단점이 있습니다.
+## FreeRTOS Example
 
 <br/>
 
-FreeRTOS는 coroutine을 library 형태로 지원하며, 관련 API는 다음과 같습니다.
-
-
-
-* **xCoRoutineCreate** : 새 coroutine을 생성합니다.
-* **crDELAY** : 주어진 clock tick 동안 coroutine을 지연시킵니다.
+설치가 완료 되었다면 예제를 통해 확인해 봐야겠죠? frBlink예제를 통해 Thread 2개를 이용하여 아두이노 LED ON/OFF를 수행해 봅시다. ‘파일’ – ‘예제’ – 하단의 FreeRTOS_AVR – frBlink 선택해 봅시다. 아 참고로 저는 AVR 계열의 Arduino UNO보드를 사용하여 실습하였습니다. 만약 ARM계열의 보드를 사용하신다면 아래의 '호환되지 않음'을 선택하여 **FreeRTOS_ARM** 을 사용할 수 있습니다.
 
 <br/>
 
-## Message queue
+![Imgur](https://i.imgur.com/wZWvfW8.png)
+
+```cpp 
+
+/*
+ * Example to demonstrate thread definition, semaphores, and thread sleep.
+ */
+#include <FreeRTOS_AVR.h>
+
+// The LED is attached to pin 13 on Arduino.
+const uint8_t LED_PIN = 13;
+
+// Declare a semaphore handle.
+SemaphoreHandle_t sem;
+//------------------------------------------------------------------------------
+/*
+ * Thread 1, turn the LED off when signalled by thread 2.
+ */
+// Declare the thread function for thread 1.
+static void Thread1(void* arg) {
+  while (1) {
+
+    // Wait for signal from thread 2.
+    xSemaphoreTake(sem, portMAX_DELAY);
+
+    // Turn LED off.
+    digitalWrite(LED_PIN, LOW);
+  }
+}
+//------------------------------------------------------------------------------
+/*
+ * Thread 2, turn the LED on and signal thread 1 to turn the LED off.
+ */
+// Declare the thread function for thread 2.
+static void Thread2(void* arg) {
+
+  pinMode(LED_PIN, OUTPUT);
+
+  while (1) {
+    // Turn LED on.
+    digitalWrite(LED_PIN, HIGH);
+
+    // Sleep for 200 milliseconds.
+    vTaskDelay((200L * configTICK_RATE_HZ) / 1000L);
+
+    // Signal thread 1 to turn LED off.
+    xSemaphoreGive(sem);
+
+    // Sleep for 200 milliseconds.
+    vTaskDelay((200L * configTICK_RATE_HZ) / 1000L);
+  }
+}
+//------------------------------------------------------------------------------
+void setup() {
+  portBASE_TYPE s1, s2;
+
+  Serial.begin(9600);
+  
+  // initialize semaphore
+  sem = xSemaphoreCreateCounting(1, 0);
+
+  // create task at priority two
+  s1 = xTaskCreate(Thread1, NULL, configMINIMAL_STACK_SIZE, NULL, 2, NULL);
+
+  // create task at priority one
+  s2 = xTaskCreate(Thread2, NULL, configMINIMAL_STACK_SIZE, NULL, 1, NULL);
+
+  // check for creation errors
+  if (sem== NULL || s1 != pdPASS || s2 != pdPASS ) {
+    Serial.println(F("Creation problem"));
+    while(1);
+  }
+  // start scheduler
+  vTaskStartScheduler();
+  Serial.println(F("Insufficient RAM"));
+  while(1);
+}
+//------------------------------------------------------------------------------
+// WARNING idle loop has a very small stack (configMINIMAL_STACK_SIZE)
+// loop must never block
+void loop() {
+  // Not used.
+}
+
+```
 
 <br/>
 
-Message queue는 task들이 작은 크기의 데이터인 message를 비동기(asynchronous)적으로 서로 주고 받을 수 있도록 해줍니다. 관련 API는 다음과 같습니다.
-
-* **xQueueCreate** : 새 queue를 생성합니다.
-* **xQueueDelete** : Queue를 삭제합니다.
-* **xQueueSend** : Queue에 message를 넣습니다.
-* **xQueueReceive** : Queue로부터 message를 가져옵니다.
-* **uxQueueMessagesWaiting** : Queue에 저장된 message의 개수를 돌려줍니다.
-* **xQueueSendFromISR** : Queue에 message를 넣습니다. 이 함수는 ISR에서 사용 가능합니다.
-* **xQueueReceiveFromISR** : Queue로부터 message를 가져옵니다. 이 함수는 ISR에서 사용 가능합니다.
-* **crQUEUE_SEND** : Message queue로 message를 보냅니다. 이 함수는 Coroueine에서 사용 가능합니다.
-* **crQUEUE_RECEIVE** : Message queue로 message를 받습니다. 이 함수는 Coroueine에서 사용 가능합니다.
-* **crQUEUE_SEND_FROM_ISR** : Message queue를 사용해 ISR에서 coroutine으로 message를 보낼 때 이 함수를 사용합니다.
-* **crQUEUE_RECEIVE_FROM_ISR** : Message queue를 사용해 ISR에서 coroutine으로부터 message를 받을 때 이 함수를 사용합니다.
-
-<br/>
-
-## Semaphore
-
-<br/>
-
-**Semaphore**는 multitasking 환경에서 한 순간에 하나의 task만이 사용할 수 있도록 공유 자원을 보호해야 할 필요가 있는 경우 사용하는 대표적인 자료 구조입니다.
-
-관련 API는 다음과 같습니다.
-
-
-
-* **vSemaphoreCreateBinary** : Semaphore를 생성합니다.
-* **xSemaphoreTake** : Semaphore를 획득합니다. Semaphore의 P operation 역할을 합니다.
-* **xSemaphoreGive** : Semaphore를 풀어줍니다.. Semaphore의 V operation 역할을 합니다.
-* **xSemaphoreGiveFromISR** : Semaphore를 풀어줍니다.. Semaphore의 V operation 역할을 합니다. 이 함수는 ISR에서 사용 가능합니다.
-
+frblink를 예제를 보면 Thread1 과  Thread2 가 세마포어를 통해 두 개의 프로세스가 상호 동작하는 것을 확인할 수 있을 것 입니다. 
