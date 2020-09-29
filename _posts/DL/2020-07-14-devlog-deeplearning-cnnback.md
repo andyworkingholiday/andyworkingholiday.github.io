@@ -4,6 +4,7 @@ title:  "[Deep Learning] CNN의 backpropagation 과정에 대해 알아보자"
 subtitle: "CNN_backpropagation"
 categories: devlog
 tags: deeplearning
+use_math: true
 ---
 
 이번 포스팅에서는 **Convolutional Neural Networks(CNN)**의 **역전파(backpropagation)**에 대해 알아보도록 하겠습니다. 수학에 약한지라 수식은 배제하고 직관적으로 설명해보겠습니닷..! 이번 글은 미국 스탠포드대학의 [CS231n 강의](http://cs231n.github.io/optimization-2/)을 많이 참고하였습니다. 그럼 시작하겠습니다.

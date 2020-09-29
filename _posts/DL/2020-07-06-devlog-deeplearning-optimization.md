@@ -4,6 +4,7 @@ title:  "[Deep Learning] 딥러닝 학습의 다양한 기술들을 알아보자
 subtitle: "Optimization"
 categories: devlog
 tags: deeplearning
+use_math: true
 ---
 
 이번 장에서는 다양한 최적화 기법을 소개하겠습니다.

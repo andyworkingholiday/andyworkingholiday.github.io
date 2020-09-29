@@ -4,6 +4,7 @@ title:  " [Deep Learning] CNN의 주요 모델들에 관하여 알아보자 "
 subtitle: "CNN Models"
 categories: devlog
 tags: deeplearning
+use_math: true
 ---
 
 이번 글에서 다루게 될 내용은 **Convolutional Neural Network**(CNN)의 주요 모델들입니다. Transfer Leanrning을 이용하여 개발을 진행할 일이 생겨서 CNN Model을 공부할 겸 포스팅하게 되었습니다.

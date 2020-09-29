@@ -4,6 +4,7 @@ title:  "[Deep Learning] 딥러닝 학습의 다양한 기술들을 알아보자
 subtitle: "Activate Function"
 categories: devlog
 tags: deeplearning
+use_math: true
 ---
 
 아래 설명드릴 내용은 딥러닝 관련 다양한 학습기술들을 살펴보고자 합니다. 
