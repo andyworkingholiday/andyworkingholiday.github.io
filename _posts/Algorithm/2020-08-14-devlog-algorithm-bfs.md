@@ -4,6 +4,7 @@ title:  "[Algorithm] 너비 우선 탐색(Breath First Search) BFS에 대해 알
 subtitle: "BFS"
 categories: devlog
 tags: algorithm
+use_math: true
 ---
 
 이번 글에서는 **그래프(Graph)** 라는 자료구조를 순회하는 알고리즘 가운데 **너비우선탐색(Breath First Search)** 기법을 살펴보도록 하겠습니다. c++ 코드는 [이곳](https://hongku.tistory.com/156)을 참고하였습니다. 그럼 시작하겠습니다.

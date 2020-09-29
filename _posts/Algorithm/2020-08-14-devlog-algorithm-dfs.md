@@ -4,6 +4,7 @@ title:  "[Algorithm] 깊이 우선 탐색(Depth First Search) DFS에 대해 알�
 subtitle: "DFS"
 categories: devlog
 tags: algorithm
+use_math: true
 ---
 
 이번 글에서는 **그래프(Graph)** 라는 자료구조를 순회하는 알고리즘 가운데 **깊이우선탐색(Depth First Search)** 기법을 살펴보도록 하겠습니다. c++ 코드는 [이곳](https://hongku.tistory.com/157?category=804730)을 참고하였습니다.

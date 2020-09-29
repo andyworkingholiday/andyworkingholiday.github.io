@@ -4,6 +4,7 @@ title:  "[Algorithm] 이분 탐색(Binary Search)에 대해 알아보자"
 subtitle: "Binary Search"
 categories: devlog
 tags: algorithm
+use_math: true
 ---
 
 이번 글에서는 **이진탐색(binary search)** 알고리즘에 대해 살펴보도록 하겠습니다. 코드는 [이곳](github.com/TheAlgorithms/Python)을 참고하였습니다. 그럼 시작하겠습니다.

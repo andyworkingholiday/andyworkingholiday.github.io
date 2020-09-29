@@ -4,6 +4,7 @@ title:  "[Algorithm] 다익스트라 알고리즘(Djikstra)에 대해 알아보�
 subtitle: "Djikstra"
 categories: devlog
 tags: algorithm
+use_math: true
 ---
 
 이번 글에서는 최단 경로(Shortest Path)를 찾는 대표적인 기법 가운데 하나인 다익스트라 알고리즘(Dijkstra's algorithm)을 살펴보도록 하겠습니다. 그럼 시작하겠습니다.

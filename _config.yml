@@ -117,10 +117,6 @@ exclude:
 
 kramdown:
   footnote_backlink: '&#x21a9;&#xfe0e;'
-  math_engine:       mathjax
-  math_engine_opts:
-    preview:         true
-    preview_as_code: true
 
 compress_html:
   comments:          ["<!-- ", " -->"]
@@ -131,3 +127,10 @@ compress_html:
 
 sass:
   style:             compressed
+
+# Math equation
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
