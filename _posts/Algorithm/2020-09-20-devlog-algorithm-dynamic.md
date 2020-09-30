@@ -1,4 +1,4 @@
----/Users/andyworkingholiday/Downloads/ratsgo.github.io-master
+---
 layout: post
 title:  "[Algorithm] DP(다이내믹 프로그래밍)에 대해 알아보자"
 subtitle: "DP"
