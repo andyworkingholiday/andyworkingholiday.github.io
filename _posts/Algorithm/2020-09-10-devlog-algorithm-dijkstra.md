@@ -15,7 +15,7 @@ use_math: true
 
 ## Djikstra
 
-다익스트라 알고리즘은 [너비우선탐색(BFS)](https://ratsgo.github.io/data%20structure&algorithm/2017/11/19/BFS/)을 기본으로 합니다. 하단 좌측과 같은 그래프를 대상으로 다익스트라 알고리즘을 적용해 보겠습니다. 우선 시작노드를 제외한 모든 노드의 거리정보를 무한대로 초기화합니다. 시작노드 $s$를 탐색하고 있다(*processing*)는 의미로 *gray*를 칠해둡니다.
+다익스트라 알고리즘은 [너비우선탐색(BFS)](https://andyworkingholiday.github.io/devlog/2020/08/14/devlog-algorithm-bfs/)을 기본으로 합니다. 하단 좌측과 같은 그래프를 대상으로 다익스트라 알고리즘을 적용해 보겠습니다. 우선 시작노드를 제외한 모든 노드의 거리정보를 무한대로 초기화합니다. 시작노드 $s$를 탐색하고 있다(*processing*)는 의미로 *gray*를 칠해둡니다.
 
 
 
