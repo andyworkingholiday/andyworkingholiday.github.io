@@ -1,4 +1,4 @@
----/Users/andyworkingholiday/Downloads/ratsgo.github.io-master
+---
 layout: post
 title:  "[Algorithm] 벨만-포드 알고리즘(Bellman-Ford)에 대해 알아보자"
 subtitle: "Bellman-Ford"

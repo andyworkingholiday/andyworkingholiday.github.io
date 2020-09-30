@@ -1,4 +1,4 @@
----/Users/andyworkingholiday/Downloads/ratsgo.github.io-master
+---
 layout: post
 title:  "[Algorithm] 최단 경로 문제(Shortet Path)에 대해 알아보자"
 subtitle: "Shortest Path"
