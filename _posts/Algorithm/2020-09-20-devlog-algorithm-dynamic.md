@@ -33,11 +33,11 @@ use_math: true
 | :------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 가격 $p_i$ |  1   |  5   |  8   |  9   |  10  |  17  |  17  |  20  |
 
-</br>
+<br/>
 
 고려해야 할 경우의 수는 꽤 많습니다. 가령 길이가 4미터인 통나무를 자르는 가짓수는 아래와 같이 8가지나 됩니다. 여기서 최대 이익을 내는 *optimal solution*은 길이가 2미터인 통나무 두개로 쪼개 파는 경우입니다. 이 때 *optimal value*는 10만원이 됩니다. ($n$미터 통나무라면 고려해야할 경우의 수는 $2^{n-1}$가지)
 
-</br>
+<br/>
 
 
 
@@ -68,7 +68,7 @@ use_math: true
 
 이를 파이썬으로 구현한 코드는 다음과 같습니다([출처]()). 약간 손질하였습니다.
 
-</br>
+<br/>
 
 ```python
 INT_MIN = -32767
@@ -102,7 +102,7 @@ print("Maximum Obtainable Value is " + str(cutRod(arr, size)))
 
 수열 $A$와 $B$의 마지막 원소가 서로 같다면 `case1`에 해당하고, 다르다면 `case2`이거나 `case3`에 해당합니다. 그런데 우리는 제일 긴 수열에 관심이 있으므로 `case2`, `case3` 가운데 최대값을 취합니다. 입력 문자열 길이에 해당하는 행렬(0으로 초기화)을 만들어 놓고 행렬을 위와 같은 규칙을 바탕으로 업데이트합니다. 이를 파이썬으로 구현한 코드는 다음과 같습니다.
 
-</br>
+<br/>
 
 
 ```python
@@ -123,7 +123,7 @@ def lcs(a, b):
 
 위 행렬 계산은 우측 하단 모서리인 (7, 6)에서 시작합니다. 대상 칸의 값과 바로 위 칸의 값(4)이 같으면 한 칸 위로 옮깁니다. 다르다면 대상 칸의 값과 바로 왼쪽 칸의 값을 비교해 같으면 한 칸 왼쪽으로 옮깁니다. 바로 위 칸과 왼쪽 칸 모두 대상 칸의 값과 다르다면 해당 위치의 원소가 공통수열의 원소에 해당하므로 결과 *result* 변수에 저장하고, 대각선으로 한 칸 옮깁니다. 이를 구현한 파이썬 코드는 다음과 같습니다.
 
-</br>
+<br/>
 
 ```python
     # read the substring out from the matrix
@@ -151,23 +151,50 @@ def lcs(a, b):
 - $ABCD$ : $(AB)(CD)$, $A(BC)D$, ...
 - ...
 
-이를 파이썬으로 구현한 코드는 다음과 같습니다([출처](http://www.geeksforgeeks.org/dynamic-programming-set-8-matrix-chain-multiplication/)). 약간 손질하였습니다.
+이를 C언어로 구현한 코드는 다음과 같습니다([출처](http://www.geeksforgeeks.org/dynamic-programming-set-8-matrix-chain-multiplication/)).
 
-```python
+```cpp
 def MatrixChainOrder(p):
-    n = len(p)
-    m = [[0 for x in range(n)] for x in range(n)]
-    for L in range(2, n):
-        for i in range(1, n - L + 1):
-            j = i + L - 1
-            m[i][j] = float('inf')
-            for k in range(i, j):
-                # q = cost/scalar multiplications
-                q = m[i][k] + m[k + 1][j] + \
-                	p[i - 1] * p[k] * p[j]
-                if q < m[i][j]:
-                    m[i][j] = q
-    return m[1][n - 1]
+/* A naive recursive implementation that simply 
+follows the above optimal substructure property */
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+// Matrix Ai has dimension p[i-1] x p[i] 
+// for i = 1..n 
+int MatrixChainOrder(int p[], int i, int j) { 
+    if (i == j) 
+        return 0; 
+    int k; 
+    int min = INT_MAX; 
+    int count; 
+  
+    // place parenthesis at different places 
+    // between first and last matrix, recursively 
+    // calculate count of multiplications for 
+    // each parenthesis placement and return the 
+    // minimum count 
+    for (k = i; k < j; k++) { 
+        count = MatrixChainOrder(p, i, k) + MatrixChainOrder(p, k + 1, j) + p[i - 1] * p[k] * p[j]; 
+  
+        if (count < min) 
+            min = count; 
+    } 
+  
+    // Return minimum count 
+    return min; 
+} 
+  
+// Driver Code 
+int main() { 
+    int arr[] = { 1, 2, 3, 4, 3 }; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+  
+    cout << "Minimum number of multiplications is "
+         << MatrixChainOrder(arr, 1, n - 1); 
+} 
+  
+// This code is contributed by Shivi_Aggarwal 
 ```
 
 위 코드에서 $p$는 행렬 크기를 나타냅니다. 예컨대 [1,2,3,4]라면 행렬 $A$의 차원수가 1×2, $B$는 2×3, $C$는 3×4이고 셋을 곱한다는 뜻입니다. 
