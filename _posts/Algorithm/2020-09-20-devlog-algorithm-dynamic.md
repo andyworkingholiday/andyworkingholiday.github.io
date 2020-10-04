@@ -154,10 +154,10 @@ def lcs(a, b):
 이를 C언어로 구현한 코드는 다음과 같습니다([출처](http://www.geeksforgeeks.org/dynamic-programming-set-8-matrix-chain-multiplication/)).
 
 ```cpp
-def MatrixChainOrder(p):
 /* A naive recursive implementation that simply 
 follows the above optimal substructure property */
 #include <bits/stdc++.h> 
+#include <stdio.h>
 using namespace std; 
   
 // Matrix Ai has dimension p[i-1] x p[i] 
